@@ -4,4 +4,8 @@ class ContactsController < ApplicationController
 
   end
 
+  def new_contact
+
+  end
+
 end
