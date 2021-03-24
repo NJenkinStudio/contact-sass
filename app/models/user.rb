@@ -4,4 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_many :contacts
+
+  def full_name
+    return "#{last_name}, #{first_name}" if last_name || first_name
+  end
 end

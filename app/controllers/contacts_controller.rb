@@ -1,11 +1,12 @@
 class ContactsController < ApplicationController
-
+  before_action :set_contact, only: %i[ show edit ]
 
   def index
     @contacts = Contact.all
   end
 
   def show
+    @contact = Contact.find(params[:id])
   end
 
   def new
@@ -36,9 +37,10 @@ class ContactsController < ApplicationController
   def contact_params
   
     params.require(:contact).permit(:first_name, :last_name, :number, :email, :user_id, address_attributes:[:id, :address1, :address2, :city, :state, :zip])
-  end
+  end   
 
   def set_contact
-    @contact = Contact.find(parma[:id])
+    @contact = Contact.find(params[:id])
   end
+
 end
