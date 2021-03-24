@@ -5,8 +5,12 @@ class ContactsController < ApplicationController
     @contacts = Contact.all
   end
 
+  def show
+  end
+
   def new
     @contact = Contact.new
+    1.times { @contact.addresses.build }
   end
 
   def edit
@@ -14,7 +18,6 @@ class ContactsController < ApplicationController
   end
 
   def create
-  byebug
     @contact = Contact.new(contact_params)
 
     respond_to do |format|
@@ -32,7 +35,7 @@ class ContactsController < ApplicationController
 
   def contact_params
   
-    params.require(:contact).permit(:first_name, :last_name, :number, :email, :user_id, { address:[]})
+    params.require(:contact).permit(:first_name, :last_name, :number, :email, :user_id, address_attributes:[:id, :address1, :address2, :city, :state, :zip])
   end
 
   def set_contact
