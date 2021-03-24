@@ -13,8 +13,6 @@
           <%= f.email_field :email, autocomplete: 'email', class: 'form-control', placeholder: "Email" %>
         </div>
       </div>
-      
-      
       <%= f.fields_for :addresses do |addresses_form| %>
         <div class="form-group">
           <label for="inputAddress">Address</label>

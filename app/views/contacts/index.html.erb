@@ -1,1 +1,44 @@
-<h1>Contacts</h1>
+<div class="container header-index">
+<div class="jumbotron text-center text-white">
+  <div class="container header-space">
+    <h1 class="display-3 contact-head">4 Your Contacts</h1>
+    <hr class="my-1">
+    <% if user_signed_in? %>
+    <%= link_to 'New Contact', new_contact_path, class: "btn btn-outline-secondary btn-sm" %>
+    <% else %>
+    <%= link_to 'Login', new_user_session_path, class: "btn btn-outline-secondary btn-sm" %>
+    <% end %>
+  </div>
+</div>
+</div>
+
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">First</th>
+      <th scope="col">Last</th>
+      <th scope="col">Handle</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>Mark</td>
+      <td>Otto</td>
+      <td>@mdo</td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>Jacob</td>
+      <td>Thornton</td>
+      <td>@fat</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td>Larry</td>
+      <td>the Bird</td>
+      <td>@twitter</td>
+    </tr>
+  </tbody>
+</table>
