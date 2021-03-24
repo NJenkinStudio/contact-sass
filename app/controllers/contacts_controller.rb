@@ -1,8 +1,8 @@
 class ContactsController < ApplicationController
   before_action :set_contact, only: %i[ show edit ]
-
+  
   def index
-    @contacts = Contact.all
+    @contacts = Contact.where(user_id: current_user)
   end
 
   def show
