@@ -1,5 +1,6 @@
 class ContactsController < ApplicationController
   before_action :set_contact, only: %i[ show edit ]
+  before_action :authenticate_user!, except: %i[ index ]
   
   def index
     @contacts = Contact.where(user_id: current_user)
@@ -15,6 +16,10 @@ class ContactsController < ApplicationController
   end
 
   def edit
+
+  end
+
+  def update
 
   end
 
