@@ -1,11 +1,16 @@
-
-  <div class="card" style="width: 30rem;">
-    <div class="card-body">
-      <h5 class="card-title"><%= @contact.full_name %></h5>
-      
-      <h6 class="card-subtitle mb-2"><%= @contact.number%></h6>
-      <h6 class="card-subtitle mb-2"><%= @contact.birthday%></h6>
-      <%= link_to 'Edit', edit_contact_path, class: "card-link" %></a>
-      <a href="#" class="card-link">Another link</a>
+<div class="row">
+  <div class="col-sm-6">
+    <div class="card" style="width: 30rem;">
+      <div class="card-body">
+        <h5 class="card-title"><%= @contact.full_name %></h5>
+        
+        <h6 class="card-subtitle mb-2 font-weight-light">Phone number: <%= @contact.number%></h6>
+        <h6 class="card-subtitle mb-2 font-weight-light">Birthday: <%= @contact.birthday%></h6>
+        <h6 class="card-subtitle mb-2 font-weight-light">Address: <%= @contact.addresses.%></h6>
+        <%= link_to 'Edit', edit_contact_path, class: "card-link" %>
+        <%= link_to 'Delete', contact_path, class: "card-link", method: :delete, 
+                                            data: {confirm: "Do you wish to delete #{@contact.full_name}?"} %>
+      </div>
     </div>
   </div>
+</div>

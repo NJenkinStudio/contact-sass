@@ -34,7 +34,7 @@
                                     class: "btn btn-outline-warning btn-sm" %>
               <%= link_to 'Delete', contact_path(contact),
                                     class: "btn btn-outline-danger btn-sm", method: :delete, 
-                                    data: {confirm: "Do you wish to delete #{contact.first_name}?"}%></td>
+                                    data: {confirm: "Do you wish to delete #{contact.full_name}?"}%></td>
         </tr>
         <% end %>
     </tbody>

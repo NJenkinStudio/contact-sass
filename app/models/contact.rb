@@ -5,5 +5,10 @@ class Contact < ApplicationRecord
 
   def full_name
     return "#{first_name} #{last_name}" if last_name || first_name
+    
+  end
+
+  def address
+    
   end
 end
