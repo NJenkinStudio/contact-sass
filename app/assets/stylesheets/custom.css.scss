@@ -24,3 +24,12 @@
 .contact-head {
   color: darkred;
 }
+
+.contact-back {
+  background-image: asset-url('phone.jpg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  object-fit: cover;
+  height: 205px;
+  filter: blur(8px) grayscale(75%);
+}

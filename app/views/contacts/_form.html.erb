@@ -27,30 +27,38 @@
     </div>
   </div>
   <%= f.fields_for :addresses do |af| %>
-    <div class="form-group">
-      <label for="inputAddress1">Address</label>
-      <%= af.text_field :address1, autocomplete: 'address', class: 'form-control', placeholder: "1221 Your St" %>
-    </div>
-    <div class="form-group">
-      <label for="inputAddress2">Address 2</label>
-      <%= af.text_field :address2, class: 'form-control', placeholder: "Apt, Studio, or Floor" %>
-    </div>
-    <div class="form-row">
-      <div class="form-group col-md-6">
-        <label for="inputCity">City</label>
-        <%= af.text_field :city, class: 'form-control', placeholder: "City Name" %>
+    <div id="hidden-address">
+      <div class="form-group">
+        <label for="inputAddress1">Address</label>
+        <%= af.text_field :address1, autocomplete: 'address', class: 'form-control', placeholder: "1221 Your St" %>
       </div>
-      <div class="form-group col-md-4">
-        <label for="inputState">State</label>
-        <%= af.select :state,  Address::STATES.collect {|s| [ s[:value], s[:key] ] },
-                                                        { include_blank: true }, 
-                                                        {class: 'form-control', required: true} %>
+      <div class="form-group">
+        <label for="inputAddress2">Address 2</label>
+        <%= af.text_field :address2, class: 'form-control', placeholder: "Apt, Studio, or Floor" %>
       </div>
-      <div class="form-group col-md-2">
-        <label for="inputZip">Zip</label>
-        <%= af.text_field :zip, :maxlength => 5, class: "form-control", placeholder: "12345" %>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="inputCity">City</label>
+          <%= af.text_field :city, class: 'form-control', placeholder: "City Name" %>
+        </div>
+        <div class="form-group col-md-4">
+          <label for="inputState">State</label>
+          <%= af.select :state,  Address::STATES.collect {|s| [ s[:value], s[:key] ] },
+                                                          { include_blank: true }, 
+                                                          {class: 'form-control', required: true} %>
+        </div>
+        <div class="form-group col-md-2">
+          <label for="inputZip">Zip</label>
+          <%= af.text_field :zip, :maxlength => 5, class: "form-control", placeholder: "12345" %>
+        </div>
       </div>
+      <script type="text/javascript">
+      $(document).ready(function(){
+      window.alert("test");
+      })
+      </script>
     </div>
+    <button type="button" id="clone_btn" class="btn btn-primary">Clone</button>
   <% end %>
   <%= f.hidden_field :user_id, :value => current_user.id %>
   <%= f.submit 'Create Contact', class: "btn btn-secondary" %>
